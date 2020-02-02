@@ -1,3 +1,5 @@
 import React from 'react'
 
-export const Greet = () => <h1>Hello Frank via Greet functional component using ES6 syntax, name export method </h1>
+const Greet = () => <h1>Hello Frank via Greet functional component using ES6 syntax, revert back to default export </h1>
+
+export default Greet
