@@ -10,11 +10,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Greet name="Frank" customerName="John"></Greet> 
-        <Greet name="Myat" customerName="John"></Greet> 
-        <Greet name="Thu" customerName="John"></Greet>        
-        {/* <Welcome></Welcome>
-        <Hello></Hello> */}
+        <Greet name="Frank" customerName="Batman">
+          <p>This is a paragraph</p>
+        </Greet> 
+        <Greet name="Myat" customerName="John">
+          <button>Action</button>
+        </Greet> 
+        <Greet name="Thu" customerName="Superman"></Greet>
+        <Welcome name="Frank" customerName="Batman"></Welcome>
+        <Welcome name="Myat" customerName="John"></Welcome>
+        <Welcome name="Thu" customerName="Superman"></Welcome>
+        {/* <Hello></Hello> */}
       </div>
     );
   }
