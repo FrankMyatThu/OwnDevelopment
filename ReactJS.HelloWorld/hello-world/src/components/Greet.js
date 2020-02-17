@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Greet = ({ name, customerName }) => {
-    //console.log(props)
+const Greet = (props) => {
+    const { name, customerName } = props
     return (
         <div>
-            <h1>Hello {name} (using paramerter) {customerName} </h1>
+            <h1>Hello {name} (.using paramerter) {customerName} </h1>
             {/* {props.children} */}
         </div>
     )
