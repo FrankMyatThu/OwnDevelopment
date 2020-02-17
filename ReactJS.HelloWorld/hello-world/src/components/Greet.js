@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Greet = (props) => {
-    console.log(props)
+const Greet = ({ name, customerName }) => {
+    //console.log(props)
     return (
         <div>
-            <h1>Hello {props.name} (using paramerter) { props.customerName } </h1>
-            {props.children}
+            <h1>Hello {name} (using paramerter) {customerName} </h1>
+            {/* {props.children} */}
         </div>
-    ) 
+    )
 }
 
 export default Greet
