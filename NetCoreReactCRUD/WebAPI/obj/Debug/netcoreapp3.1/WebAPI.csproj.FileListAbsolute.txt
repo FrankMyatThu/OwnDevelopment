@@ -36,3 +36,4 @@ D:\myatthu\Repos\OwnDevelopment\NetCoreReactCRUD\WebAPI\bin\Debug\netcoreapp3.1\
 D:\myatthu\Repos\OwnDevelopment\NetCoreReactCRUD\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\myatthu\Repos\OwnDevelopment\NetCoreReactCRUD\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.dll
 D:\myatthu\Repos\OwnDevelopment\NetCoreReactCRUD\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.pdb
+D:\myatthu\Repos\OwnDevelopment\NetCoreReactCRUD\WebAPI\obj\Debug\netcoreapp3.1\WebAPI.csprojAssemblyReference.cache
