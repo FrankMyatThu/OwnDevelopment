@@ -2,4 +2,4 @@ const DCandidateForm = (props) => {
     return(<div>from DCandidateForm</div>);
 }
 
-export default;
+export default DCandidateForm;
