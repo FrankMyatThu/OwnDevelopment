@@ -1,3 +1,5 @@
+import api from "./api";
+
 export const ACTION_TYPES = {
     CREATE:'CREATE',
     UPDATE:'UPDATE',
@@ -6,8 +8,16 @@ export const ACTION_TYPES = {
 }
 
 export const fetchall = () => dispatch => {
-    dispatch({
-        type : ACTION_TYPES.FETCH_ALL,
-        payload : []
-    })
+
+    api.dCandidate().fetchAll()    
+    .then(
+        Response => {
+            dispatch({
+                type : ACTION_TYPES.FETCH_ALL,
+                payload : Response.data
+            })
+        }
+    )
+    .catch(err => console.log(err))
+        
 }
