@@ -5,13 +5,13 @@ const initialState = {
 
 export const dCandidate = (state = initialState, action) => {
     switch (action.type) {
-        case ACTION_TYPES.FETCH_ALL:
+        case ACTION_TYPES.FETCH_ALL:            
             return{
                 ...state,
-                list: [...action.payload]
-            }    
+                list:[...action.payload]                
+            }             
         
         default:
-            break;
+            return state;
     }
 }
