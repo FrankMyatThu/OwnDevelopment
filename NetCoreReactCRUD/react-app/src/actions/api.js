@@ -1,6 +1,6 @@
 import Axios, {  } from "axios";
 
-const baseUrl = "http://localhost:50243/api"
+const baseUrl = "http://localhost:50243/api/"
 
 export default {
     dCandidate(url = baseUrl + 'dcandidate/'){

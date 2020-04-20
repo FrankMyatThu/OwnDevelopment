@@ -7,11 +7,12 @@ export const ACTION_TYPES = {
     FETCH_ALL:'FETCH_ALL'
 }
 
-export const fetchall = () => dispatch => {
+export const fetchAll = () => dispatch => {
 
     api.dCandidate().fetchAll()    
     .then(
         Response => {
+            console.log(Response)
             dispatch({
                 type : ACTION_TYPES.FETCH_ALL,
                 payload : Response.data
