@@ -1,11 +1,22 @@
 import React, {useState, useEffect} from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions/dCandidate";
-import { Grid, Paper, TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
+import { Grid, Paper, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, withStyles } from "@material-ui/core";
 import DCandidateForm from "./DCandidateForm";
 
+const styles = theme =>({
+    root: {
+        "& .MuiTableCell-head":{
+            fontSize: "1.25rem"
+        }
+    },
+    paper : {
+        margin: theme.spacing(2),
+        padding: theme.spacing(2)
+    }
+})
 
-const DCandidates = (props) => {
+const DCandidates = ({ classes, ...props }) => {
     // const [x, setX] = useState(0)
     // setX(5)
 
@@ -14,7 +25,7 @@ const DCandidates = (props) => {
     }, [])// componetDidMount
 
     return(
-        <Paper>
+        <Paper className={classes.paper} elevation={3}>
             <Grid container>
                 <Grid item xs={6}>
                     <DCandidateForm/>                
@@ -22,7 +33,7 @@ const DCandidates = (props) => {
                 <Grid item xs={6}>
                     <TableContainer>
                         <Table>
-                            <TableHead>
+                            <TableHead className={classes.root}>
                                 <TableRow>
                                     <TableCell>Name</TableCell>
                                     <TableCell>Mobile</TableCell>
@@ -33,7 +44,7 @@ const DCandidates = (props) => {
                                 {
                                     props.dCandidateList.map((record, index) => {
                                         return(
-                                            <TableRow key={index}>
+                                            <TableRow key={index} hover >
                                                 <TableCell>{record.fullName}</TableCell>
                                                 <TableCell>{record.mobile}</TableCell>
                                                 <TableCell>{record.bloodGroup}</TableCell>
@@ -60,4 +71,4 @@ const mapActionToProps = {
     fetchAllDCandidates : actions.fetchAll
 }
 
-export default connect(mapStateToProps, mapActionToProps)(DCandidates);
+export default connect(mapStateToProps, mapActionToProps) (withStyles(styles)(DCandidates));

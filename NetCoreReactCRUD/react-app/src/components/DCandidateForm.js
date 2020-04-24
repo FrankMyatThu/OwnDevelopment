@@ -1,7 +1,70 @@
-import React from "react";
+import React, {useState} from "react";
+import { Grid, TextField } from "@material-ui/core";
+
+const initialFieldValues = {
+    FullName: '',
+    mobile: '',
+    email: '', 
+    age: '',
+    bloodGroup: '',
+    address: ''
+}
 
 const DCandidateForm = (props) => {
-    return(<div>from DCandidateForm</div>);
+    const [values, setValues] = useState(initialFieldValues)
+    const handleInputChange = e => {
+        const [name, value] = e.target
+        setValues({
+            ...values,
+            [name]: value
+        })
+    }
+    return(
+        <form autoComplete="off" noValidate>
+            <Grid container >
+                <Grid item xs = {6}>
+                    <TextField 
+                        name="fullName"
+                        variant="outlined"
+                        label="Full Name" 
+                        value={values.FullName}
+                        onChange= {handleInputChange} 
+                    />
+                    <TextField 
+                        name="email"
+                        variant="outlined"
+                        label="Email" 
+                        value={values.email}
+                        onChange= {handleInputChange} 
+                    />
+                    <div>bloodGroup</div>
+                </Grid>
+                <Grid item xs={6}>
+                    <TextField 
+                        name="mobile"
+                        variant="outlined"
+                        label="Mobile" 
+                        value={values.mobile}
+                        onChange= {handleInputChange} 
+                    />
+                    <TextField 
+                        name="age"
+                        variant="outlined"
+                        label="Age" 
+                        value={values.age}
+                        onChange= {handleInputChange} 
+                    />
+                    <TextField 
+                        name="address"
+                        variant="outlined"
+                        label="Address" 
+                        value={values.address}
+                        onChange= {handleInputChange} 
+                    />
+                </Grid>
+            </Grid>
+        </form>
+    );
 }
 
 export default DCandidateForm;
