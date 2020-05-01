@@ -8,12 +8,10 @@ import { Container } from "@material-ui/core";
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={store}>      
       <Container maxWidth="lg">
         <DCandidates></DCandidates>
-      </Container>
-      
-      
+      </Container>      
     </Provider>
   );
 }

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Grid, TextField, withStyles, MenuItem, FormControl, InputLabel, Select } from "@material-ui/core";
+import { Grid, TextField, withStyles, MenuItem, FormControl, InputLabel, Select, Button } from "@material-ui/core";
 import useForm from "./useForm";
 
 const styles = theme => ({
@@ -12,11 +12,14 @@ const styles = theme => ({
     formControl:{
         margin: theme.spacing(1),
         minWidth: 230,
+    }, 
+    smMargin:{
+        margin: theme.spacing(1),
     }
 })
 
 const initialFieldValues = {
-    FullName: '',
+    fullName: '',
     mobile: '',
     email: '', 
     age: '',
@@ -25,9 +28,25 @@ const initialFieldValues = {
 }
 
 const DCandidateForm = ({classes, ...props}) => {    
+
+    const validate = () => {
+        let temp = {}
+        temp.fullName = values.fullName ? "": "This field is required."
+        temp.mobile = values.mobile ? "": "This field is required."
+        temp.bloodGroup = values.bloodGroup ? "": "This field is required."
+        temp.email = (/^$|.+@.+..+/).test(values.email) ? "": "This field is required."
+        setErrors({
+            ...temp
+        })
+
+        return Object.values(temp).every(x => x=="")
+    }
+
     const {
         values,
         setValues,
+        errors,
+        setErrors,
         handleInputChange
     } = useForm(initialFieldValues)
 
@@ -38,15 +57,23 @@ const DCandidateForm = ({classes, ...props}) => {
         setLabelWidth(inputLabel.current.offsetWidth);
     }, []);
 
+    const handleSubmit = e => {
+        e.preventDefault()
+        if(validate())
+        {
+            window.alert('validation succeeded')
+        }
+    }
+
     return(
-        <form autoComplete="off" noValidate className={classes.root}>
+        <form autoComplete="off" noValidate className={classes.root} onSubmit={handleSubmit}>
             <Grid container >
                 <Grid item xs = {6}>
                     <TextField 
                         name="fullName"
                         variant="outlined"
                         label="Full Name" 
-                        value={values.FullName}
+                        value={values.fullName}
                         onChange= {handleInputChange} 
                     />
                     <TextField 
@@ -97,6 +124,22 @@ const DCandidateForm = ({classes, ...props}) => {
                         value={values.address}
                         onChange= {handleInputChange} 
                     />
+                    <div>
+                        <Button
+                            variant = "contained"
+                            color = "primary"
+                            type = "submit"
+                            className = {classes.smMargin}                            
+                        >
+                            Submit
+                        </Button>
+                        <Button
+                            variant = "contained"
+                            className = {classes.smMargin}
+                        >
+                            Reset
+                        </Button>
+                    </div>
                 </Grid>
             </Grid>
         </form>
