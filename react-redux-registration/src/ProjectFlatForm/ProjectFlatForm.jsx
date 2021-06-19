@@ -60,7 +60,7 @@ export default function ProjectFlatForm() {
     return (
         <div>
             <form className={classes_forms.root} noValidate autoComplete="off">
-                <Grid container spacing={1}>
+                <Grid container spacing={1} style={{ width: '100%' }}>
                     <Grid container item xs={12} spacing={3}>
                         <FormRow />
                     </Grid>
